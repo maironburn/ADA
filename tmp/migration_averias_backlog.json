@@ -1,0 +1,24 @@
+{
+	"source" : {
+		"server": "10.225.109.93",
+		"port": 9200,
+		"index": "averias_backlog",
+		"certPem": "C:\\projects\\ADA\\ApiADA\\ApiADA\\config\\certs\\admin.pem",
+		"certKey": "C:\\projects\\ADA\\ApiADA\\ApiADA\\config\\certs\\admin.key",
+		"certRootCa": "C:\\projects\\ADA\\ApiADA\\ApiADA\\config\\certs\\root-ca.pem",
+		"sql" : {
+                    "query": {
+						"match_all": {}
+                    }
+                 }
+	},
+	"target" : {
+		"server": "eswlibhr.es.sedc.internal.vodafone.com",
+		"port": 9200,
+		"index": "averias_backlog",
+		"certPem": "C:\\projects\\ADA\\ApiADA\\ApiADA\\config\\certs_prepro\\admin.pem",
+		"certKey": "C:\\projects\\ADA\\ApiADA\\ApiADA\\config\\certs_prepro\\admin.key",
+		"certRootCa": "C:\\projects\\ADA\\ApiADA\\ApiADA\\config\\certs_prepro\\root-ca.pem"
+	}
+}
+

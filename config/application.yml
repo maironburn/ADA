@@ -1,0 +1,44 @@
+default: &DEFAULT
+  LOG_LEVEL: INFO
+  SECRET_KEY: null
+  DEFAULT_PWD: 'sdfG324423$%$2dSfgsD'
+  DEBUG: True
+  DB_FOLDER: db
+  CERTS_FOLDER: config\certs
+  ELK_SERVER: 10.225.109.143
+  ELK_PORT: 9200
+  ELK_CERT: admin.pem
+  ELK_CERT_KEY: admin.key    
+  ELK_ROOT_CA: root-ca.pem
+  TMP_FOLDER: tmp
+  KIBANA_URL: http://10.225.109.143:5601/login
+  VALIDATION_SCRIPTS_PATH:
+    CUSTOMER: core.beans.customer_validation.validations
+    ASSET: core.beans.asset_validation.validations
+  PLINK_COMMAND: tools\plink.exe
+
+
+development:
+  <<: *DEFAULT
+  SECRET_KEY: w1!&1sn!(s06boslk!-9vaydctd=fk9_40g_99-@zezi(6sw)$
+  ALLOWED_HOSTS: ['10.225.109.22', '10.225.109.143', '10.225.109.93']
+  
+preproduction:
+  <<: *DEFAULT
+  CERTS_FOLDER: config/certs
+  LOG_LEVEL: ERROR
+  SECRET_KEY: w1!&1sn!(s06boslk!-9vaydctd=fk9_40g_99-@zezi(6sw)$
+  ELK_SERVER: eswlibhr.es.sedc.internal.vodafone.com
+  ELK_PORT: 9200
+  DEBUG: False
+  KIBANA_URL: http://eswlibhr.es.sedc.internal.vodafone.com:9500/login
+  ALLOWED_HOSTS: ['eswlibhr.es.sedc.internal.vodafone.com']
+
+production:
+  <<: *DEFAULT
+  CERTS_FOLDER: config/certs
+  LOG_LEVEL: ERROR
+  DEBUG: False
+  SECRET_KEY: os.environ.get('SC')
+  ALLOWED_HOSTS: ['eswlibhr.es.sedc.internal.vodafone.com', '10.225.109.143']
+ 

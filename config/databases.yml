@@ -1,0 +1,55 @@
+default: &DEFAULT
+  databases: null
+  
+development:
+  <<: *DEFAULT
+  databases:
+      default:
+        ENGINE: django.db.backends.sqlite3
+        NAME: !dbFolder ['db.sqlite3']
+      smart_gg:
+        ENGINE: django.db.backends.oracle
+        NAME: "(DESCRIPTION = (ADDRESS = (PROTOCOL= TCP)(Host= localhost)(Port= 1270))(CONNECT_DATA = (SID = pga1gg)(SERVER=DEDICATED)))"
+        USER: aqueron
+        PASSWORD: aqueron_2019_sc0dm555
+      smart_replica:
+        ENGINE: django.db.backends.oracle
+        NAME: "(DESCRIPTION = (ADDRESS = (PROTOCOL= TCP)(Host= localhost)(Port= 1215))(CONNECT_DATA = (SID = pga1)(SERVER=DEDICATED)))"
+        USER: jrealfu
+        PASSWORD: Temporal01
+  
+preproduction:
+  <<: *DEFAULT
+  databases:
+      default:
+        ENGINE: django.db.backends.sqlite3
+        NAME: !dbFolder ['db.sqlite3']
+      smart_gg:
+        ENGINE: django.db.backends.oracle
+        #NAME: "(DESCRIPTION = (ADDRESS = (PROTOCOL= TCP)(Host= localhost)(Port= 1270))(CONNECT_DATA = (SID = pga1gg)(SERVER=DEDICATED)))"
+        NAME: "(DESCRIPTION = (ADDRESS = (PROTOCOL= TCP)(Host= localhost)(Port= 1207))(CONNECT_DATA = (SID = dga1)(SERVER=DEDICATED)))"
+        USER: aqueron
+        PASSWORD: aqueron_2019_sc0dm4
+      smart_replica:
+        ENGINE: django.db.backends.oracle
+        NAME: "(DESCRIPTION = (ADDRESS = (PROTOCOL= TCP)(Host= localhost)(Port= 1270))(CONNECT_DATA = (SID = pga1gg)(SERVER=DEDICATED)))"
+        USER: aqueron
+        PASSWORD: aqueron_2019_sc0dm555
+
+production:
+  <<: *DEFAULT
+  databases:
+      default:
+        ENGINE: django.db.backends.sqlite3
+        NAME: !dbFolder ['db.sqlite3']
+      smart_gg:
+        ENGINE: django.db.backends.oracle
+        #NAME: "(DESCRIPTION = (ADDRESS = (PROTOCOL= TCP)(Host= localhost)(Port= 1270))(CONNECT_DATA = (SID = pga1gg)(SERVER=DEDICATED)))"
+        NAME: "(DESCRIPTION = (ADDRESS = (PROTOCOL= TCP)(Host= localhost)(Port= 1207))(CONNECT_DATA = (SID = dga1)(SERVER=DEDICATED)))"
+        USER: aqueron
+        PASSWORD: aqueron_2019_sc0dm4
+      smart_replica:
+        ENGINE: django.db.backends.oracle
+        NAME: "(DESCRIPTION = (ADDRESS = (PROTOCOL= TCP)(Host= localhost)(Port= 1270))(CONNECT_DATA = (SID = pga1gg)(SERVER=DEDICATED)))"
+        USER: aqueron
+        PASSWORD: aqueron_2019_sc0dm555                 

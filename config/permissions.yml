@@ -1,0 +1,39 @@
+info:
+  groups: ['administrator','operator','poweruser']
+  groups_priority:
+    administrator: 1
+    poweruser: 2
+    operator: 3
+  models: ['appparameter','workflow', 'workflow_method', 'workflow_method_parameter', 'workflow_script', 'kibana', 'pattern', 'condition', 'ruleset','rule', 'rulesetfield', 'ruleoperator', 'action', 'rulefunction', 'validationscript', 'elkquery','auditprocess', 'clasification','analysiserror','tunnelssh','classification']
+  permissions: ['view', 'add', 'delete', 'change']  
+
+administrator:
+  default: ['view', 'add', 'delete', 'change']
+  workflow_method:
+    permissions: ['view', 'add', 'delete', 'change', 'execute']
+  elkquery:
+    permissions: ['view', 'add', 'delete', 'change', 'execute']
+  tunnelssh:  
+    permissions: ['view', 'add', 'delete', 'change', 'execute']
+
+operator:
+  default: ['view']
+  appparameter:
+    permissions: []
+  kibana:
+    permissions: ['view']
+  elkquery:
+    permissions: ['view', 'add', 'delete', 'change', 'execute']
+  tunnelssh:  
+    permissions: ['view', 'change', 'execute']
+
+poweruser: 
+  default: ['view']
+  pattern:
+    permissions: ['view', 'add', 'delete', 'change']
+  elkquery:
+    permissions: ['view', 'add', 'delete', 'change', 'execute']
+  tunnelssh:  
+    permissions: ['view', 'change', 'execute']
+
+

@@ -1,0 +1,25 @@
+default: &DEFAULT
+  base_dn: o=airtel.es
+  allowed_groups: ['w_apl_ADA_administrator','w_apl_ADA_poweruser','w_apl_ADA_operator']
+  #Mapping between ldap groups and server groups
+  mapping:
+    w_apl_ADA_administrator: 'administrator'
+    w_apl_ADA_operator: 'operator'
+    w_apl_ADA_poweruser: 'poweruser' 
+
+development:
+  <<: *DEFAULT
+  ldap_server: ldap://ldap-prep:1389
+
+preproduction:
+  <<: *DEFAULT
+  ldap_server: ldap://ldap-prep:1389
+
+
+production:
+  <<: *DEFAULT
+  ldap_server: ldap://es006ahr.es.sedc.internal.vodafone.com:1389
+
+
+
+
