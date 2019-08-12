@@ -54,10 +54,17 @@ class MLsvm(object):
         train = pd.DataFrame.from_dict(data)
         it = tfidf.transform(train.detalle).toarray()
         prediction = mlp.predict(it)
+
+        dict_prob_categoria={}
+        prob= mlp.predict_proba(it)
+        for i in range (mlp.predict_proba(it).shape[1]):
+            dict_prob_categoria.update({self.neural_orch.json_id_cat.get(str(i)) : prob[0][i]})
+
+
         print("prediction -> {}".format(prediction))
         print("cat: {}".format(self.neural_orch.json_id_cat.get(str(prediction[0]))))
 
-        return self.neural_orch.json_id_cat.get(str(prediction[0]))
+        return dict_prob_categoria
 
     # <editor-fold desc="Setters / Getters">
 
