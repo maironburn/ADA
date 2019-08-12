@@ -1,6 +1,5 @@
 import os
 
-
 from core.ml.SVM.settings.settings import EXTRACCION_IT, MODELS_DEST_FOLDER
 from core.ml.SVM.controller.neural_network_orquestador import NeuralOrquestador
 from core.ml.SVM.helper.general_helper import check_file_and_dest_folder

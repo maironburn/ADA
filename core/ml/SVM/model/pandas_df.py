@@ -3,7 +3,10 @@ from json import dumps, dump
 import numpy as np
 import pandas as pd
 
-from core.ml.SVM.settings.settings import JSON_ID_CAT, COL_NAMES
+COL_NAMES = ['descripcion', 'detalle']
+TEST_SIZE = 0.33
+RANDOM_STATE = 0
+JSON_ID_CAT= "/home/ada/app/ApiADA/ApiADA/core/ml/SVM/data_file_model/json_id_cat.json"
 
 
 class PandasDF(object):
@@ -68,6 +71,7 @@ class PandasDF(object):
     def json_to_file(self, data):
         with open(JSON_ID_CAT, 'w') as outfile:
             dump(data, outfile)
+            print("guardado JSON en {}".format(JSON_ID_CAT))
 
     # <editor-fold desc="getters /Setter">
 
